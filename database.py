@@ -1,6 +1,7 @@
+import os
 import sqlite3
 
-DB_NAME = 'medical.db'
+DB_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'medical.db')
 
 def init_db():
     conn = sqlite3.connect(DB_NAME)
@@ -20,7 +21,7 @@ def init_db():
 def get_patients():
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
-    cursor.execute('SELECT id, name, age, diagnosis, status FROM patients')
+    cursor.execute('SELECT id, name, age, diagnosis, status FROM patients ORDER BY id DESC')
     rows = cursor.fetchall()
     conn.close()
     
