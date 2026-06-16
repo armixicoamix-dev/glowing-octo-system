@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f0f7ff 0%, #e6f0fa 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: linear-gradient(135deg, #0a4b7a, #1d7bb3);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 40, 80, 0.3);
+    border-bottom: 5px solid #4fc3f7;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: 8px;
+}
+
+main {
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 25px;
+    flex: 1;
+}
+
+.form-section {
+    background: white;
+    padding: 28px 35px;
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0, 30, 60, 0.12);
+    margin-bottom: 35px;
+    border-left: 8px solid #1d7bb3;
+    transition: 0.3s;
+}
+
+.form-section:hover {
+    box-shadow: 0 18px 50px rgba(0, 30, 60, 0.18);
+}
+
+.form-section h2 {
+    color: #0a4b7a;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+#patientForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+#patientForm input,
+#patientForm select {
+    flex: 1 1 180px;
+    padding: 14px 18px;
+    border: 2px solid #dde9f5;
+    border-radius: 14px;
+    font-size: 1rem;
+    background: #f9fcff;
+    transition: 0.2s;
+}
+
+#patientForm input:focus,
+#patientForm select:focus {
+    border-color: #1d7bb3;
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(29, 123, 179, 0.15);
+}
+
+#patientForm button {
+    background: linear-gradient(135deg, #0a4b7a, #1d7bb3);
+    color: white;
+    border: none;
+    padding: 14px 34px;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+    box-shadow: 0 6px 16px rgba(13, 71, 114, 0.3);
+    flex: 0 0 auto;
+}
+
+#patientForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(13, 71, 114, 0.4);
+}
+
+.table-section {
+    background: white;
+    border-radius: 24px;
+    padding: 28px 30px 35px;
+    box-shadow: 0 12px 40px rgba(0, 30, 60, 0.10);
+    overflow-x: auto;
+}
+
+.table-section h2 {
+    color: #0a4b7a;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.98rem;
+}
+
+thead {
+    background: linear-gradient(135deg, #0a4b7a, #1d7bb3);
+    color: white;
+}
+
+th {
+    padding: 16px 18px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #e8f0f8;
+    vertical-align: middle;
+}
+
+tbody tr {
+    transition: 0.15s;
+}
+
+tbody tr:hover {
+    background: #f2f9ff;
+    transform: scale(1.002);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-active {
+    background: #d4edda;
+    color: #0b6e3a;
+}
+
+.status-recovered {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-critical {
+    background: #f8d7da;
+    color: #8a1c2c;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-buttons button {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-edit {
+    background: #ffc107;
+    color: #1e1e1e;
+}
+
+.btn-edit:hover {
+    background: #ffb300;
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+footer {
+    background: #0a2a44;
+    color: #b0d4f0;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    border-top: 4px solid #1d7bb3;
+}
+
+/* Адаптив */
+@media (max-width: 700px) {
+    #patientForm {
+        flex-direction: column;
+    }
+    #patientForm input,
+    #patientForm select,
+    #patientForm button {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+}
