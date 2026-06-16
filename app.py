@@ -1,7 +1,16 @@
+import os
+import sys
 from flask import Flask, render_template, request, jsonify
 from database import init_db, get_patients, add_patient, delete_patient, update_patient
 
-app = Flask(__name__)
+# Явно указываем пути для корректной работы
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+app = Flask(__name__, 
+            template_folder=TEMPLATE_DIR,
+            static_folder=STATIC_DIR)
 
 # Инициализация базы данных
 init_db()
@@ -50,4 +59,6 @@ def api_delete_patient(patient_id):
     return jsonify({'message': 'Пациент удалён'})
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Для Render используем порт из переменной окружения
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
